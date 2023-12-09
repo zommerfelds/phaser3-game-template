@@ -1,5 +1,7 @@
-import Phaser from 'phaser';
-import logoImg from './assets/logo.png';
+import 'phaser';
+// import logoImg from 'copy!./assets/logo.png';
+// import logoImage 
+//const logoImg = require('./assets/logo.png');
 
 class MyGame extends Phaser.Scene
 {
@@ -11,7 +13,8 @@ class MyGame extends Phaser.Scene
     preload ()
     {
         //  This is an example of a bundled image:
-        this.load.image('logo', logoImg);
+        //this.load.image('logo', logoImg);
+        this.load.image('logo', 'assets/logo.png');
 
         //  This is an example of loading a static image from the public folder:
         this.load.image('background', 'assets/bg.jpg');
@@ -26,6 +29,7 @@ class MyGame extends Phaser.Scene
         this.tweens.add({
             targets: logo,
             y: 450,
+            x: 0,
             duration: 2000,
             ease: "Power2",
             yoyo: true,

@@ -7,6 +7,7 @@ const webpack = require("webpack");
 
 module.exports = {
   mode: "production",
+  entry: path.resolve(__dirname, "../src/index.ts"),
   output: {
     path: path.resolve(process.cwd(), 'dist'),
     filename: "bundle.min.js"
@@ -19,11 +20,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
+        use: "ts-loader",
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
       },
       {
         test: [/\.vert$/, /\.frag$/],

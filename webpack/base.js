@@ -4,16 +4,15 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
+  entry: path.resolve(__dirname, "../src/index.ts"),
   mode: "development",
   devtool: "eval-source-map",
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
+        use: "ts-loader",
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
       },
       {
         test: [/\.vert$/, /\.frag$/],

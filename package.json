@@ -34,6 +34,8 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
-    "phaser": "3.70"
+    "phaser": "3.70",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3"
   }
 }
