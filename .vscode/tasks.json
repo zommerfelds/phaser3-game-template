@@ -5,8 +5,10 @@
 			"type": "npm",
 			"script": "start",
 			"label": "npm: start",
+			"problemMatcher": [],
 			"runOptions": {
-				"runOn": "folderOpen"
+				"runOn": "folderOpen",
+				"instanceLimit": 1
 			},
 		}
 	]

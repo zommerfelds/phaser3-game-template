@@ -6,23 +6,33 @@ class MyGame extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('logo', 'assets/logo.png');
-        this.load.image('background', 'assets/bg.jpg');
+        this.load.path = 'assets/';
+        this.load.image('platform', 'Platform.png');
+        this.load.aseprite('swordGuy', 'Sword guy.png', 'Sword guy.json');
     }
 
     create() {
-        this.add.image(400, 300, 'background');
+        this.anims.createFromAseprite('swordGuy');
+        this.add.image(64, 66, 'platform');
+        const swordGuy = this.add.sprite(88, 50, 'swordGuy').play({ key: 'walk', repeat: -1 });
 
-        const logo = this.add.image(400, 150, 'logo');
-
-        this.tweens.add({
-            targets: logo,
-            y: 450,
-            duration: 2000,
-            ease: "Power2",
-            yoyo: true,
+        this.tweens.chain({
+            targets: swordGuy,
+            tweens: [
+                {
+                    x: 40,
+                    duration: 1500,
+                    onComplete: () => { swordGuy.flipX = true; },
+                },
+                {
+                    x: 88,
+                    duration: 1500,
+                    onComplete: () => { swordGuy.flipX = false; },
+                }
+            ],
             loop: -1
         });
+
     }
 }
 
@@ -32,9 +42,14 @@ const config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    width: 800,
-    height: 600,
-    scene: MyGame
+    width: 128,
+    height: 96,
+    zoom: 5,
+    pixelArt: true,
+    antialias: false,
+    autoRound: true,
+    roundPixels: true,
+    scene: MyGame,
 };
 
 const game = new Phaser.Game(config);
