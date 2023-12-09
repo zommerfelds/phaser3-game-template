@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout 🛎️
-        uses: nschloe/action-cached-lfs-checkout@v1
+        uses: actions/checkout@v3
 
       - name: Build Game 🎲
         run: |
@@ -18,7 +18,7 @@ jobs:
           npm run build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        uses: JamesIves/github-pages-deploy-action@v4.5
         with:
           branch: gh-pages
           folder: dist
