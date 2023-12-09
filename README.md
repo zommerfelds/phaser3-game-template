@@ -6,7 +6,7 @@ Game template using Phaser 3. Can be edited right in the browser:
 
 Originally based on https://github.com/gamecook/phaser-project-template
 
-Live demo: https://zommerfelds.github.io/phaser5-game/
+Live demo: https://zommerfelds.github.io/phaser3-game-template/
 
 ## Set up deployment to GitHub Pages
 
