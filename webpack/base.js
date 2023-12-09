@@ -25,6 +25,12 @@ module.exports = {
       }
     ]
   },
+  devServer: { 
+    // This is needed to make live reload connect to the right port on Github Codespaces:
+    client: {
+      webSocketURL: 'auto://0.0.0.0:0/ws',
+    },
+  },
   plugins: [
     new CleanWebpackPlugin({
       root: path.resolve(__dirname, "../")
@@ -44,3 +50,4 @@ module.exports = {
     })
   ]
 };
+
