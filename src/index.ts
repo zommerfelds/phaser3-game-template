@@ -1,35 +1,23 @@
 import 'phaser';
-// import logoImg from 'copy!./assets/logo.png';
-// import logoImage 
-//const logoImg = require('./assets/logo.png');
 
-class MyGame extends Phaser.Scene
-{
-    constructor ()
-    {
+class MyGame extends Phaser.Scene {
+    constructor() {
         super();
     }
 
-    preload ()
-    {
-        //  This is an example of a bundled image:
-        //this.load.image('logo', logoImg);
+    preload() {
         this.load.image('logo', 'assets/logo.png');
-
-        //  This is an example of loading a static image from the public folder:
         this.load.image('background', 'assets/bg.jpg');
     }
-      
-    create ()
-    {
+
+    create() {
         this.add.image(400, 300, 'background');
 
         const logo = this.add.image(400, 150, 'logo');
-      
+
         this.tweens.add({
             targets: logo,
             y: 450,
-            x: 0,
             duration: 2000,
             ease: "Power2",
             yoyo: true,
@@ -40,7 +28,10 @@ class MyGame extends Phaser.Scene
 
 const config = {
     type: Phaser.AUTO,
-    parent: 'phaser-example',
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    },
     width: 800,
     height: 600,
     scene: MyGame

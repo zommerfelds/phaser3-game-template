@@ -24,7 +24,7 @@ module.exports = {
       }
     ]
   },
-  devServer: { 
+  devServer: {
     // This is needed to make live reload connect to the right port on Github Codespaces:
     client: {
       webSocketURL: 'auto://0.0.0.0:0/ws',
